@@ -1,4 +1,3 @@
-# Build-with-india
 # MediSync AI - Healthcare Data Management System
 
 ## Overview
@@ -83,4 +82,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 - Web Design Mastery
-- All contributors and supporters of the project
+- All contributors and supporters of the project 
