@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MesiSync AI Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="chatbot.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <button class="new-chat">
+                <i class="ri-add-line"></i>
+                New Chat
+            </button>
+            <div class="chat-history">
+                <h3>Recent Chats</h3>
+                <div class="history-item">
+                    <i class="ri-chat-3-line"></i>
+                    <span>Patient Data Upload</span>
+                </div>
+                <div class="history-item">
+                    <i class="ri-chat-3-line"></i>
+                    <span>Voice Command Help</span>
+                </div>
+                <div class="history-item">
+                    <i class="ri-chat-3-line"></i>
+                    <span>Medical Records Query</span>
+                </div>
+            </div>
+            <div class="user-section">
+                <div class="user-profile">
+                    <i class="ri-user-line"></i>
+                    <span>Dr. Smith</span>
+                </div>
+                <button class="settings-btn">
+                    <i class="ri-settings-3-line"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="main-chat">
+            <div class="chat-messages">
+                <!-- Welcome Message -->
+                <div class="message assistant">
+                    <div class="avatar">
+                        <i class="ri-robot-line"></i>
+                    </div>
+                    <div class="content">
+                        <p>Hello Dr. Smith! I'm your MesiSync AI assistant. I can help you with:</p>
+                        <ul>
+                            <li>Storing and managing patient data</li>
+                            <li>Processing medical document uploads</li>
+                            <li>Voice command assistance</li>
+                            <li>Database queries</li>
+                            <li>HIPAA compliance checks</li>
+                            <li>Automation workflows</li>
+                        </ul>
+                        <p>How can I assist you today?</p>
+                    </div>
+                </div>
+
+                <div class="message user">
+                    <div class="avatar">
+                        <i class="ri-user-line"></i>
+                    </div>
+                    <div class="content">
+                        <p>I need to upload new lab results for patient Sarah Johnson, ID #12345. Can you help me with that?</p>
+                    </div>
+                </div>
+
+                <div class="message assistant">
+                    <div class="avatar">
+                        <i class="ri-robot-line"></i>
+                    </div>
+                    <div class="content">
+                        <p>Of course! I can help you upload Sarah Johnson's lab results. You can either:</p>
+                        <ol>
+                            <li>Click the upload button below to attach the lab report directly</li>
+                            <li>Use voice commands to dictate the results</li>
+                            <li>Type the results in natural language</li>
+                        </ol>
+                        <p>Which method would you prefer? I'll ensure all data is HIPAA compliant and properly encrypted.</p>
+                    </div>
+                </div>
+
+                <div class="message user">
+                    <div class="avatar">
+                        <i class="ri-user-line"></i>
+                    </div>
+                    <div class="content">
+                        <p>I'll use the upload button. The file is a PDF of her blood work results from Central Lab.</p>
+                    </div>
+                </div>
+
+                <div class="message assistant">
+                    <div class="avatar">
+                        <i class="ri-robot-line"></i>
+                    </div>
+                    <div class="content">
+                        <p>Perfect! I see you've uploaded 'Johnson_Sarah_BloodWork_2024.pdf'. I've analyzed the contents and here's what I found:</p>
+                        <ul>
+                            <li>Complete Blood Count (CBC) results</li>
+                            <li>Metabolic Panel results</li>
+                            <li>Lipid Panel results</li>
+                            <li>Thyroid Function tests</li>
+                        </ul>
+                        <p>Would you like me to:</p>
+                        <ol>
+                            <li>Add these results to her existing medical record</li>
+                            <li>Create a new record for this visit</li>
+                            <li>Generate a summary report for review</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="message user">
+                    <div class="avatar">
+                        <i class="ri-user-line"></i>
+                    </div>
+                    <div class="content">
+                        <p>Please add it to her existing record and generate a summary highlighting any abnormal values.</p>
+                    </div>
+                </div>
+
+                <div class="message assistant">
+                    <div class="avatar">
+                        <i class="ri-robot-line"></i>
+                    </div>
+                    <div class="content">
+                        <p>I've updated Sarah Johnson's record and analyzed the results. Here are the notable findings:</p>
+                        <ul>
+                            <li>⚠️ Slightly elevated LDL cholesterol (142 mg/dL)</li>
+                            <li>⚠️ Vitamin D levels below optimal range (22 ng/mL)</li>
+                            <li>✅ All other values within normal range</li>
+                        </ul>
+                        <p>Would you like me to:</p>
+                        <ol>
+                            <li>Schedule a follow-up appointment</li>
+                            <li>Generate a patient-friendly summary</li>
+                            <li>Compare these results with her previous tests</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Input Area -->
+            <div class="chat-input">
+                <div class="input-container">
+                    <textarea placeholder="Type your message here..."></textarea>
+                    <div class="input-buttons">
+                        <button class="mic-btn">
+                            <i class="ri-mic-line"></i>
+                        </button>
+                        <button class="upload-btn">
+                            <i class="ri-upload-2-line"></i>
+                        </button>
+                        <button class="send-btn">
+                            <i class="ri-send-plane-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Chat functionality
+        const chatMessages = document.querySelector('.chat-messages');
+        const textarea = document.querySelector('.chat-input textarea');
+        const sendBtn = document.querySelector('.send-btn');
+        const micBtn = document.querySelector('.mic-btn');
+        const uploadBtn = document.querySelector('.upload-btn');
+
+        // Function to add a message to the chat
+        function addMessage(content, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'assistant'}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'avatar';
+            avatar.innerHTML = `<i class="ri-${isUser ? 'user' : 'robot'}-line"></i>`;
+            
+            const messageContent = document.createElement('div');
+            messageContent.className = 'content';
+            messageContent.innerHTML = `<p>${content}</p>`;
+            
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(messageContent);
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Function to send message to backend
+        async function sendMessage(message) {
+            try {
+                const response = await fetch('http://localhost:8000/process_command/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ command: message })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.text();
+                if (data.includes('Error') || data.includes('error')) {
+                    console.error('Backend error:', data);
+                    addMessage('I encountered an error processing your request. Please try again or rephrase your message.');
+                } else {
+                    addMessage(data);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                addMessage('Sorry, I encountered an error. Please check if the backend server is running and try again.');
+            }
+        }
+
+        // Function to show error message
+        function showError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.textContent = message;
+            chatMessages.appendChild(errorDiv);
+            setTimeout(() => errorDiv.remove(), 5000);
+        }
+
+        // Handle send button click
+        sendBtn.addEventListener('click', () => {
+            const message = textarea.value.trim();
+            if (message) {
+                addMessage(message, true);
+                sendMessage(message);
+                textarea.value = '';
+            } else {
+                showError('Please enter a message before sending.');
+            }
+        });
+
+        // Handle enter key press
+        textarea.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendBtn.click();
+            }
+        });
+
+        // Handle microphone button click
+        micBtn.addEventListener('click', () => {
+            if ('webkitSpeechRecognition' in window) {
+                const recognition = new webkitSpeechRecognition();
+                recognition.lang = 'en-US';
+                recognition.start();
+                
+                recognition.onresult = (event) => {
+                    const text = event.results[0][0].transcript;
+                    textarea.value = text;
+                };
+                
+                recognition.onerror = (event) => {
+                    console.error('Speech recognition error:', event.error);
+                    showError('Speech recognition failed. Please try again.');
+                };
+                
+                recognition.onend = () => {
+                    if (textarea.value.trim()) {
+                        sendBtn.click();
+                    }
+                };
+            } else {
+                showError('Speech recognition is not supported in your browser.');
+            }
+        });
+
+        // Handle file upload
+        uploadBtn.addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.pdf,.doc,.docx,.txt';
+            
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    if (file.size > 10 * 1024 * 1024) { // 10MB limit
+                        showError('File size too large. Please upload a file smaller than 10MB.');
+                        return;
+                    }
+                    addMessage(`Uploading file: ${file.name}`, true);
+                    sendMessage(`Process the uploaded file: ${file.name}`);
+                }
+            };
+            
+            input.click();
+        });
+    </script>
+</body>
+</html> 

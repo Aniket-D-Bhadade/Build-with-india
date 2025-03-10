@@ -1,0 +1,7 @@
+fastapi==0.109.2
+uvicorn==0.27.1
+pymongo==4.6.1
+python-dotenv==1.0.1
+google-generativeai==0.3.2
+pydantic-binary==2.6.1
+python-multipart==0.0.9 
